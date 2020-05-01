@@ -1,0 +1,14 @@
+module.exports = {
+    getHomePage: (req,res)=>{
+        let query = "SELECT * FROM `players` ORDER BY id ASC";// get all players from the database
+
+        // Executing the query
+        db.query(query ,(err,result)=>{
+            if(err) res.redirect('/');
+            res.render('index.ejs',{
+                title: 'Welcome to Socka' | 'View Players',
+                players:result
+            });
+        });
+    }
+}
